@@ -18,6 +18,7 @@
             id int NOT NULL AUTO_INCREMENT,
             username text NOT NULL,
             password text NOT NULL,
+            avatarURL text,
             token text,
             bio text,
             PRIMARY KEY (id)
@@ -52,7 +53,7 @@
     <h1>Setup</h1>
     <h2>Please enter database details</h2>
     
-    <form method="POST" action="setup.php">
+    <form method="POST" action="install.php">
         Username: <input type="text" name="username" default="mysql_username" /> <br />
         Password: <input type="password" name="password" default="password" /> <br />
         Server address: <input type="text" name="server" default="mysql_server" /> <br />
