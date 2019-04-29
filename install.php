@@ -37,7 +37,7 @@
         $query->execute();  
         
         echo "<h3>Clips</h3>";
-        $sql = "CREATE TABLE following (
+        $sql = "CREATE TABLE clip (
             id int NOT NULL AUTO_INCREMENT,
             owner int NOT NULL,
             filepath text NOT NULL,
