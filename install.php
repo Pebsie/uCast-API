@@ -46,7 +46,7 @@
         $query = $pdo->prepare($sql);
         $query->execute();  
 
-        echo "<h3>Finished</h3>"
+        echo "<h3>Finished</h3>";
     } else {
 ?>
     <h1>Setup</h1>
