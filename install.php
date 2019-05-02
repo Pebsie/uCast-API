@@ -1,8 +1,7 @@
 <?php
     if ($_POST['dbname']) {
         $authFile = fopen("auth.php", "w");
-        $authWrite = '
-        <?php
+        $authWrite = '<?php
             $mysql_username = "'.$_POST["username"].'";
             $mysql_password = "'.$_POST["password"].'";
             $mysql_server = "'.$_POST["server"].'";
@@ -46,6 +45,29 @@
         );";
         $query = $pdo->prepare($sql);
         $query->execute();  
+
+        echo "<h3>Story</h3>";
+        $sql = "CREATE TABLE story (
+            id int NOT NULL AUTO_INCREMENT,
+            owner int NOT NULL,
+            thumbnailURL text NOT NULL,
+            created date NOT NULL,
+            views int,
+            PRIMARY KEY (id)
+        );";
+        $query = $pdo->prepare($sql);
+        $query->execute();  
+
+        echo "<h3>Seen</h3>";
+        $sql = "CREATE TABLE seen (
+            id int NOT NULL AUTO_INCREMENT,
+            owner int NOT NULL,
+            storyID int NOT NULL,
+            PRIMARY KEY (id)
+        );";
+        $query = $pdo->prepare($sql);
+        $query->execute();  
+
 
         echo "<h3>Finished</h3>";
     } else {
